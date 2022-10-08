@@ -1,16 +1,27 @@
 package main
 
-import (
+import(
 	"fmt"
-	"io/ioutil"
+	"os"
+	"bufio"
+	
 )
 
 func main(){
-	arquivo, err := ioutil.ReadFile("arquivo.txt")
+	arquivo, err := os.Open("arquivo.txt")
 
-	fmt.Println(string(arquivo))
 	
 	if err != nil {
 		fmt.Println("Aconteceu o seguinte erro: ",err)
 	}
+
+	leitor := bufio.NewReader(arquivo)
+	
+	linha, err := leitor.ReadString('m')
+
+	if err != nil {
+			fmt.Println("Ocorreu um erro: ", err)
+	}
+
+	fmt.Println(linha)
 }
