@@ -7,7 +7,11 @@ import(
 	
 )
 
+
+
 func main(){
+	
+
 	arquivo, err := os.Open("arquivo.txt")
 
 	
