@@ -1,15 +1,14 @@
 package main
 
-import(
+import (
 	"fmt"
-	"os"
-	
+	"io/ioutil"
 )
 
 func main(){
-	arquivo, err := os.Open("arquivo.txt")
+	arquivo, err := ioutil.ReadFile("arquivo.txt")
 
-	fmt.Println(arquivo)
+	fmt.Println(string(arquivo))
 	
 	if err != nil {
 		fmt.Println("Aconteceu o seguinte erro: ",err)
